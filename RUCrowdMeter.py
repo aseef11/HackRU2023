@@ -2,6 +2,7 @@ from datetime import datetime
 import streamlit as st
 from PIL import Image
 import math
+from pytz import timezone
 
 #Created By: Maanav Choudhary, Nicholas Yim, Aseef Durrani
 
@@ -56,7 +57,8 @@ st.subheader('Select a gym:')
 def mainPage():
     st.set_page_config(page_title="RU Gyms Crowd Meter", page_icon=":tada:", layout="wide")
 
-now = datetime.now()
+tz = timezone('EST')
+now = datetime.now(tz)
 current_time = now.strftime("%I:%M %p")
 
 st.sidebar.title("Other useful links:")
