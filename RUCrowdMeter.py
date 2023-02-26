@@ -2,39 +2,36 @@ from datetime import datetime
 import streamlit as st
 from PIL import Image
 import math
-from statistics import mean
 
 #Created By: Maanav Choudhary, Nicholas Yim, Aseef Durrani
 
-# use Rutgers SSO login? refer to other source code
-
 # Gets rid of menu button in top right of screen
-#st.markdown(""" <style>
-##MainMenu {visibility: hidden;}
-#footer {visibility: hidden;}
-#</style> """, unsafe_allow_html=True)
+st.markdown(""" <style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style> """, unsafe_allow_html=True)
 
-#Cache to stores the user slider input value for College Ave Gym
+#Cache to store the user slider input value for College Ave Gym
 @st.cache_resource(ttl=1800)
 def get_caData():
     return []
 
-#Cache to stores the user slider input value for Busch Gym
+#Cache to store the user slider input value for Busch Gym
 @st.cache_resource(ttl=1800)
 def get_buschData():
     return []
 
-#Cache to stores the user slider input value for Cook/Douglass Gym
+#Cache to store the user slider input value for Cook/Douglass Gym
 @st.cache_resource(ttl=1800)
 def get_cdData():
     return []
 
-#Cache to stores the user slider input value for Livingston Gym
+#Cache to store the user slider input value for Livingston Gym
 @st.cache_resource(ttl=1800)
 def get_liviData():
     return []
 
-#Cache to stores the user slider input value for Easton Ave Gym
+#Cache to store the user slider input value for Easton Ave Gym
 @st.cache_resource(ttl=1800)
 def get_eaData():
     return []
@@ -94,6 +91,7 @@ if caButton:
         #estimates capacity as number and writes it
         st.write('**Estimated Gym Capacity at** ', current_time, '**is**', calculateMeter(get_caData()),'%')
 
+        
 #Check box to select the Busch gym and show slider and meter
 buschButton = st.checkbox('Busch Gym')
 #If button is selected, this if shows the meter and slider
@@ -113,6 +111,27 @@ if buschButton:
         #estimates capacity as number and writes it
         st.write('**Estimated Gym Capacity at** ', current_time, '**is**', calculateMeter(get_buschData()),'%')
 
+
+#Check box to select the Livingston gym and show slider and meter
+liviButton = st.checkbox('Livingston Gym')
+#If button is selected, this if shows the meter and slider
+if liviButton:
+    with st.form(key='liviForm'):
+        #slider for estimate crowd level
+        liviBusy = st.slider('How busy is the Livingston Gym?', 0, 10)
+        #button to submit user input
+        liviSubmit = st.form_submit_button()
+        #Adds the user input to cache for Livingston gym
+        if liviSubmit:
+            get_liviData().append(liviBusy)  
+    #If the Livingston gym cache has more than 0 entries, it will calculate and show meter
+    if(len(get_liviData()) > 0):
+        #creates crowd meter, calls on calculateMeter() to return the current crowd average(crowd average is a truncated float)
+        liviMeter = st.progress(calculateMeter(get_liviData()), text='Crowd Meter')
+        #estimates capacity as number and writes it
+        st.write('**Estimated Gym Capacity at** ', current_time, '**is**', calculateMeter(get_liviData()),'%')
+
+        
 #Check box to select the Cook/Douglass gym and show slider and meter
 cdButton = st.checkbox('Cook/Douglass Gym')
 #If button is selected, this if shows the meter and slider
@@ -132,24 +151,6 @@ if cdButton:
         #estimates capacity as number and writes it
         st.write('**Estimated Gym Capacity at** ', current_time, '**is**', calculateMeter(get_cdData()),'%')
                 
-#Check box to select the Livingston gym and show slider and meter
-liviButton = st.checkbox('Livingston Gym')
-#If button is selected, this if shows the meter and slider
-if liviButton:
-    with st.form(key='liviForm'):
-        #slider for estimate crowd level
-        liviBusy = st.slider('How busy is the Livingston Gym?', 0, 10)
-        #button to submit user input
-        liviSubmit = st.form_submit_button()
-        #Adds the user input to cache for Livingston gym
-        if liviSubmit:
-            get_liviData().append(liviBusy)  
-    #If the Livingston gym cache has more than 0 entries, it will calculate and show meter
-    if(len(get_liviData()) > 0):
-        #creates crowd meter, calls on calculateMeter() to return the current crowd average(crowd average is a truncated float)
-        liviMeter = st.progress(calculateMeter(get_liviData()), text='Crowd Meter')
-        #estimates capacity as number and writes it
-        st.write('**Estimated Gym Capacity at** ', current_time, '**is**', calculateMeter(get_liviData()),'%')
 
 #Check box to select the Easton Ave gym and show slider and meter
 eaButton = st.checkbox('Easton Ave Gym')
