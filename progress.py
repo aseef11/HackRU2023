@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import math
+from PIL import Image
 from statistics import mean
 import sched, time
 
@@ -29,6 +30,8 @@ def iterate(entries):
 def calculateMeter(num, vals):
     return math.trunc(round(num/len(vals),1)*10)
 
+ruKnight = Image.open('scarlet_knightLogo.png')
+st.image(ruKnight, width=65)
 
 st.title(':red[RU] Gyms Crowd Meter')
 
