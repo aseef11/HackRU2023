@@ -38,7 +38,7 @@ st.title(':red[RU] Gyms Crowd Meter')
 st.subheader('Select a gym:')
 def mainPage():
     st.set_page_config(page_title="RU Gyms Crowd Meter", page_icon=":tada:", layout="wide")
-
+st.sidebar.markdown("Other useful links:")
 caButton = st.checkbox('College Ave Gym')
 startTime = None
 endTime = None
