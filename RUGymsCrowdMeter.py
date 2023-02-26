@@ -69,7 +69,7 @@ st.sidebar.markdown(
      - [College Avenue Gym](https://goo.gl/maps/wjMuFWpeGJ24ZWTTA)
      - [Busch Gym](https://goo.gl/maps/g96HRcdu2L6oQNxz6)
      - [Livingston Gym](https://goo.gl/maps/Gx1jhzMx3BkogNUa9)
-     - [Cook/Douglas Gym](https://goo.gl/maps/aSWqzzDoD1GGXHd87)
+     - [Cook/Douglass Gym](https://goo.gl/maps/aSWqzzDoD1GGXHd87)
      - [Easton Ave Gym](https://goo.gl/maps/kRCvNeC8o2z4AqBT7)
     """)
 st.sidebar.subheader("Hours:")
