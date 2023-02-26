@@ -50,6 +50,8 @@ def calculateMeter(vals):
     return math.trunc(round(sum/len(vals),1)*10)
 
 #Makes Site title
+ruKnight = Image.open('scarlet_knightLogo.png')
+st.image(ruKnight, width=65)
 st.title(':red[RU] Gyms Crowd Meter')
 
 st.subheader('Select a gym:')
