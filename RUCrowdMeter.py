@@ -38,7 +38,7 @@ def get_eaData():
     return []
 
 
-#Function is passed an array of user inputs for a certain gym 
+#Function takes an array of user inputs for a certain gym 
 def calculateMeter(vals):
     sum = 0
     #loops through the user entries and sums them
