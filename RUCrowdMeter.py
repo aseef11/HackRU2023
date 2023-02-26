@@ -93,7 +93,7 @@ st.sidebar.markdown(
      - Saturday **_11am-7pm_**
      - Sunday **_11am-9pm_**
 
-    :red[**Cook/Douglas**]
+    :red[**Cook/Douglass**]
      - Monday-Thursday **_8am-11pm_**
      - Friday **_8am-9pm_** 
      - Saturday **_11am-7pm_**
