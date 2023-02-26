@@ -22,14 +22,14 @@ def get_caData():
 def get_buschData():
     return []
 
-#Cache to store the user slider input value for Livingston Gym
-@st.cache_resource(ttl=1800)
-def get_liviData():
-    return []
-
 #Cache to store the user slider input value for Cook/Douglass Gym
 @st.cache_resource(ttl=1800)
 def get_cdData():
+    return []
+
+#Cache to store the user slider input value for Livingston Gym
+@st.cache_resource(ttl=1800)
+def get_liviData():
     return []
 
 #Cache to store the user slider input value for Easton Ave Gym
@@ -72,6 +72,40 @@ st.sidebar.markdown(
      - [Cook/Douglas Gym](https://goo.gl/maps/aSWqzzDoD1GGXHd87)
      - [Easton Ave Gym](https://goo.gl/maps/kRCvNeC8o2z4AqBT7)
     """)
+st.sidebar.subheader("Hours:")
+st.sidebar.markdown(
+    """
+    :red[**College Ave**]
+     - Monday-Thursday **_7am-11pm_**
+     - Friday **_7am-9pm_** 
+     - Saturday **_11am-7pm_**
+     - Sunday **_11am-9pm_**
+
+    :red[**Busch**]
+     - Monday-Thursday **_7am-11pm_**
+     - Friday **_7am-9pm_** 
+     - Saturday **_11am-7pm_**
+     - Sunday **_11am-9pm_**
+
+    :red[**Livingston**]
+     - Monday-Thursday **_8am-11pm_**
+     - Friday **_8am-7pm_** 
+     - Saturday **_11am-7pm_**
+     - Sunday **_11am-9pm_**
+
+    :red[**Cook/Douglas**]
+     - Monday-Thursday **_8am-11pm_**
+     - Friday **_8am-9pm_** 
+     - Saturday **_11am-7pm_**
+     - Sunday **_11am-9pm_**
+     
+    :red[**Easton Ave**]
+     - Monday-Thursday **_12pm-9pm_**
+     - Friday **_12pm-7pm_** 
+     - Saturday **_Closed_**
+     - Sunday **_3pm-9pm_**
+    """)
+
 
 
 #Check box to select the College Ave gym and show slider and meter
