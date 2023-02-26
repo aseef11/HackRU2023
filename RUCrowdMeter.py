@@ -22,14 +22,14 @@ def get_caData():
 def get_buschData():
     return []
 
-#Cache to store the user slider input value for Cook/Douglass Gym
-@st.cache_resource(ttl=1800)
-def get_cdData():
-    return []
-
 #Cache to store the user slider input value for Livingston Gym
 @st.cache_resource(ttl=1800)
 def get_liviData():
+    return []
+
+#Cache to store the user slider input value for Cook/Douglass Gym
+@st.cache_resource(ttl=1800)
+def get_cdData():
     return []
 
 #Cache to store the user slider input value for Easton Ave Gym
