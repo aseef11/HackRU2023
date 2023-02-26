@@ -60,7 +60,7 @@ def mainPage():
     st.set_page_config(page_title="RU Gyms Crowd Meter", page_icon=":tada:", layout="wide")
 
 now = datetime.now()
-current_time = now.strftime("%H:%M")
+current_time = now.strftime("%I:%M %p")
 
 st.sidebar.title("Other useful links:")
 st.sidebar.write("[Rutgers Recreation](http://recreation.rutgers.edu/)")
